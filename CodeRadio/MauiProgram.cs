@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Maui;
+﻿using CodeRadio.ViewModel;
+using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 
 namespace CodeRadio;
@@ -17,6 +18,8 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
+		builder.Services.AddSingleton<MainPage>();
+		builder.Services.AddSingleton<MainViewModel>();
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif

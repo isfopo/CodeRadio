@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:model="clr-namespace:CodeRadio.Model"
+            xmlns:viewmodel="clr-namespace:CodeRadio.ViewModel"
              x:Class="CodeRadio.MainPage">
 
     <ScrollView>
@@ -13,10 +15,14 @@
             <toolkit:MediaElement x:Name="mediaElement"
                       ShouldAutoPlay="True"
                       ShouldShowPlaybackControls="True" 
-                      Source="wss://coderadio-admin.freecodecamp.org/api/live/nowplaying/coderadio"
+                      Source="https://coderadio-admin.freecodecamp.org/radio/8010/radio.mp3"
                       HeightRequest="300"
                       WidthRequest="400"
                       />
+
+            <Button Text="Get Radio"
+                    Command="{Binding GetRadioCommand}"
+                    />
 
         </VerticalStackLayout>
     </ScrollView>

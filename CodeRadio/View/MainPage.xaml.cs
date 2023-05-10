@@ -1,10 +1,13 @@
-﻿namespace CodeRadio;
+﻿using CodeRadio.ViewModel;
+
+namespace CodeRadio;
 
 public partial class MainPage : ContentPage
 {
-	public MainPage()
+	public MainPage(MainViewModel viewModel)
 	{
 		InitializeComponent();
+		BindingContext = viewModel;
 	}
 }
 
