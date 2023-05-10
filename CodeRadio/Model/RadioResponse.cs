@@ -61,13 +61,9 @@ public partial class Live
 
 public partial class NowPlaying
 {
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("elapsed")]
-    public long? Elapsed { get; set; }
+    public double Elapsed { get; set; }
 
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("remaining")]
-    public long? Remaining { get; set; }
+    public double Remaining { get; set; }
 
     [JsonPropertyName("sh_id")]
     public long ShId { get; set; }

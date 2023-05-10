@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
+using System.Timers;
 using CodeRadio.Model;
 using CodeRadio.Services;
 using CommunityToolkit.Mvvm;
@@ -12,6 +13,8 @@ namespace CodeRadio.ViewModel;
 public partial class MainViewModel : BaseViewModel
 {
 	RadioService radioService;
+
+    static System.Timers.Timer timer; 
 
     [ObservableProperty]
     public Station station;
@@ -59,15 +62,23 @@ public partial class MainViewModel : BaseViewModel
             return;
         }
 
-		IsBusy = true;
 
-		var res = await radioService.GetRadio();
+        await FetchRadioAsync();
 
-		if (res is null)
-		{
-			await Shell.Current.DisplayAlert("Try Again", "Could not get Code Radio", "OK");
-			return;
-		}
+        SetupRefreshTimer(NowPlaying.Remaining);
+	}
+
+    async Task FetchRadioAsync()
+    {
+        IsBusy = true;
+
+        var res = await radioService.GetRadio();
+
+        if (res is null)
+        {
+            await Shell.Current.DisplayAlert("Try Again", "Could not get Code Radio", "OK");
+            return;
+        }
 
         Station = res.Station;
         Listeners = res.Listeners;
@@ -78,7 +89,19 @@ public partial class MainViewModel : BaseViewModel
         IsOnline = res.IsOnline;
         Cache = res.Cache;
 
-		IsBusy = false;
-	}
+        IsBusy = false;
+    }
+
+    async void RefreshRadioAsync(Object source, System.Timers.ElapsedEventArgs e)
+    {
+        await FetchRadioAsync();
+    }
+
+    void SetupRefreshTimer(double interval)
+    {
+        timer = new System.Timers.Timer(interval * 1000);
+        timer.Elapsed += RefreshRadioAsync;
+        timer.Enabled = true;
+    }
 }
 
