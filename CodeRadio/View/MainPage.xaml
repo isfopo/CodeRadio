@@ -13,6 +13,9 @@
             Padding="30,0"
             VerticalOptions="Center">
 
+            <Label Text="{Binding NowPlaying.Song.Title}"
+                   TextColor="Black"/>
+
             <toolkit:MediaElement x:Name="mediaElement"
                       ShouldAutoPlay="True"
                       ShouldShowPlaybackControls="True" 
@@ -21,9 +24,7 @@
                       WidthRequest="400"
                       />
 
-            <Button Text="Get Radio"
-                    Command="{Binding GetRadioCommand}"
-                    />
+
 
         </VerticalStackLayout>
     </ScrollView>
