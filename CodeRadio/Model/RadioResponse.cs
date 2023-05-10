@@ -61,18 +61,20 @@ public partial class Live
 
 public partial class NowPlaying
 {
+    [JsonPropertyName("elapsed")]
     public double Elapsed { get; set; }
 
+    [JsonPropertyName("remaining")]
     public double Remaining { get; set; }
 
     [JsonPropertyName("sh_id")]
-    public long ShId { get; set; }
+    public double ShId { get; set; }
 
     [JsonPropertyName("played_at")]
-    public long PlayedAt { get; set; }
+    public double PlayedAt { get; set; }
 
     [JsonPropertyName("duration")]
-    public long Duration { get; set; }
+    public double Duration { get; set; }
 
     [JsonPropertyName("playlist")]
     public string Playlist { get; set; }
