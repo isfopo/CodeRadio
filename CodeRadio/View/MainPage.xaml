@@ -13,16 +13,17 @@
             Padding="30,0"
             VerticalOptions="Center">
 
-            <Label Text="{Binding NowPlaying.Song.Title}"
-                   TextColor="Black"/>
-
             <toolkit:MediaElement x:Name="mediaElement"
                       ShouldAutoPlay="True"
                       ShouldShowPlaybackControls="False"
                       Source="{Binding Station.ListenUrl}"
-                      HeightRequest="300"
-                      WidthRequest="400"
+                      HeightRequest="0"
+                      WidthRequest="0"
                       />
+
+            <Label Text="{Binding NowPlaying.Song.Title}"
+                   TextColor="Black"/>
+
 
 
 
