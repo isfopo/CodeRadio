@@ -19,7 +19,7 @@
             <toolkit:MediaElement x:Name="mediaElement"
                       ShouldAutoPlay="True"
                       ShouldShowPlaybackControls="True" 
-                      Source="https://coderadio-admin.freecodecamp.org/radio/8010/radio.mp3"
+                      Source="{Binding Station.ListenUrl}"
                       HeightRequest="300"
                       WidthRequest="400"
                       />
