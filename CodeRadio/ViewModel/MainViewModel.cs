@@ -12,9 +12,9 @@ namespace CodeRadio.ViewModel;
 
 public partial class MainViewModel : BaseViewModel
 {
-	RadioService radioService;
+    RadioService radioService;
 
-    static System.Timers.Timer timer; 
+    static System.Timers.Timer timer;
 
     [ObservableProperty]
     public Station station;
