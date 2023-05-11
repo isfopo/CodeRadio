@@ -16,7 +16,7 @@
             <toolkit:MediaElement x:Name="mediaElement"
                       ShouldAutoPlay="True"
                       ShouldShowPlaybackControls="False"
-                      Source="{Binding Station.ListenUrl}"
+                      Source="{Binding SelectedListenUrl}"
                       HeightRequest="0"
                       WidthRequest="0"
                       />

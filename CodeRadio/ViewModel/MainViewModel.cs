@@ -40,20 +40,23 @@ public partial class MainViewModel : BaseViewModel
     [ObservableProperty]
     public string cache;
 
+    [ObservableProperty]
+    public Uri selectedListenUrl;
+
     IConnectivity connectivity;
 
     public MainViewModel(RadioService radioService, IConnectivity connectivity)
-	{
-		Title = "CodeRadio";
-		this.radioService = radioService;
-		this.connectivity = connectivity;
-	}
+    {
+        Title = "CodeRadio";
+        this.radioService = radioService;
+        this.connectivity = connectivity;
+    }
 
-	[RelayCommand]
-	async Task GetRadioAsync()
-	{
-		if (IsBusy)
-			return;
+    [RelayCommand]
+    async Task GetRadioAsync()
+    {
+        if (IsBusy)
+            return;
 
         if (connectivity.NetworkAccess != NetworkAccess.Internet)
         {
@@ -66,7 +69,7 @@ public partial class MainViewModel : BaseViewModel
         await FetchRadioAsync();
 
         SetupRefreshTimer(NowPlaying.Remaining);
-	}
+    }
 
     async Task FetchRadioAsync()
     {
@@ -88,6 +91,11 @@ public partial class MainViewModel : BaseViewModel
         SongHistory = res.SongHistory;
         IsOnline = res.IsOnline;
         Cache = res.Cache;
+
+        if (SelectedListenUrl is not null)
+        {
+            SelectedListenUrl = Station.ListenUrl;
+        }
 
         IsBusy = false;
     }
