@@ -92,7 +92,7 @@ public partial class MainViewModel : BaseViewModel
         IsOnline = res.IsOnline;
         Cache = res.Cache;
 
-        if (SelectedListenUrl is not null)
+        if (SelectedListenUrl is null)
         {
             SelectedListenUrl = Station.ListenUrl;
         }
