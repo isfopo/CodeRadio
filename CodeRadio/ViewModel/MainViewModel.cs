@@ -14,8 +14,6 @@ public partial class MainViewModel : BaseViewModel
 {
     RadioService radioService;
 
-    static System.Timers.Timer timer;
-
     [ObservableProperty]
     public Station station;
 
