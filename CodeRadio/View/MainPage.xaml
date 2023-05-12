@@ -28,8 +28,11 @@
 
                 <VerticalStackLayout
                     VerticalOptions="CenterAndExpand"
-                    Padding="30, 0">
-                    <Label HorizontalTextAlignment="Center" Text="{Binding NowPlaying.Song.Title}"/>
+                    Padding="0, 30"
+                    Spacing="6">
+                    <Label HorizontalTextAlignment="Center"
+                           Style="{StaticResource BoldLabel}"
+                           Text="{Binding NowPlaying.Song.Title}"/>
                     <Label HorizontalTextAlignment="Center" Text="{Binding NowPlaying.Song.Artist}"/>
                     <Label HorizontalTextAlignment="Center" Text="{Binding NowPlaying.Song.Album}"/>
                 </VerticalStackLayout>
