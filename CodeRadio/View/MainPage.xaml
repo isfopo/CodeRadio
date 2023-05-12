@@ -42,6 +42,9 @@
                 </VerticalStackLayout>
 
                 <ProgressBar x:Name="positionBar" />
+
+                <Label HorizontalTextAlignment="Start"
+                       Text="{Binding SongPosition, Converter={StaticResource SecondsToStringConverter}}"/>
                 <Label HorizontalTextAlignment="End"
                        Text="{Binding NowPlaying.Duration, Converter={StaticResource SecondsToStringConverter}}"/>
 

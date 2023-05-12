@@ -43,6 +43,9 @@ public partial class MainViewModel : BaseViewModel
     [ObservableProperty]
     public Uri selectedListenUrl;
 
+    [ObservableProperty]
+    public double songPosition;
+
     IConnectivity connectivity;
 
     public MainViewModel(RadioService radioService, IConnectivity connectivity)
@@ -68,7 +71,10 @@ public partial class MainViewModel : BaseViewModel
 
         await FetchRadioAsync();
 
-        SetupRefreshTimer(NowPlaying.Remaining);
+        TimerService.AddTimer(
+            TimeSpan.FromSeconds(1),
+            IncrementPosition
+            );
     }
 
     async Task FetchRadioAsync()
@@ -92,6 +98,8 @@ public partial class MainViewModel : BaseViewModel
         IsOnline = res.IsOnline;
         Cache = res.Cache;
 
+        SongPosition = NowPlaying.Elapsed;
+
         if (SelectedListenUrl is null)
         {
             SelectedListenUrl = Station.ListenUrl;
@@ -100,16 +108,16 @@ public partial class MainViewModel : BaseViewModel
         IsBusy = false;
     }
 
-    async void RefreshRadioAsync(Object source, System.Timers.ElapsedEventArgs e)
+    async void IncrementPosition()
     {
-        await FetchRadioAsync();
-    }
-
-    void SetupRefreshTimer(double interval)
-    {
-        timer = new System.Timers.Timer(interval * 1000);
-        timer.Elapsed += RefreshRadioAsync;
-        timer.Enabled = true;
+        if (SongPosition <= NowPlaying.Duration)
+        {
+            SongPosition += 1;
+        }
+        else
+        {
+            await FetchRadioAsync();
+        }
     }
 }
 
