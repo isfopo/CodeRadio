@@ -4,8 +4,12 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:model="clr-namespace:CodeRadio.Model"
              xmlns:viewmodel="clr-namespace:CodeRadio.ViewModel"
+             xmlns:converters="clr-namespace:CodeRadio.Converters"
              x:Class="CodeRadio.MainPage"
              x:DataType="viewmodel:MainViewModel">
+    <ContentPage.Resources>
+        <converters:SecondsToStringConverter x:Key="SecondsToStringConverter" />
+    </ContentPage.Resources>
 
     <ScrollView>
         <VerticalStackLayout
@@ -19,6 +23,7 @@
                       Source="{Binding SelectedListenUrl}"
                       HeightRequest="0"
                       WidthRequest="0"
+                      PositionChanged="OnPositionChanged"
                       />
 
             <VerticalStackLayout
@@ -36,6 +41,10 @@
                     <Label HorizontalTextAlignment="Center" Text="{Binding NowPlaying.Song.Artist}"/>
                     <Label HorizontalTextAlignment="Center" Text="{Binding NowPlaying.Song.Album}"/>
                 </VerticalStackLayout>
+
+                <ProgressBar x:Name="positionBar" />
+                <Label HorizontalTextAlignment="End"
+                       Text="{Binding NowPlaying.Duration, Converter={StaticResource SecondsToStringConverter}}"/>
 
             </VerticalStackLayout>
 
