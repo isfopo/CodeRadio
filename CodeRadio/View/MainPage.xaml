@@ -26,6 +26,10 @@
                 <Image
                     Source="{Binding NowPlaying.Song.Art}"/>
 
+                <Label Text="{Binding NowPlaying.Song.Title}"/>
+                <Label Text="{Binding NowPlaying.Song.Artist}"/>
+                <Label Text="{Binding NowPlaying.Song.Album}"/>
+
             </VerticalStackLayout>
 
 
