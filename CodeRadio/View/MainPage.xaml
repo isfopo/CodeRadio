@@ -22,13 +22,17 @@
                       />
 
             <VerticalStackLayout
-                VerticalOptions="Center">
+                VerticalOptions="CenterAndExpand">
                 <Image
                     Source="{Binding NowPlaying.Song.Art}"/>
 
-                <Label Text="{Binding NowPlaying.Song.Title}"/>
-                <Label Text="{Binding NowPlaying.Song.Artist}"/>
-                <Label Text="{Binding NowPlaying.Song.Album}"/>
+                <VerticalStackLayout
+                    VerticalOptions="CenterAndExpand"
+                    Padding="30, 0">
+                    <Label HorizontalTextAlignment="Center" Text="{Binding NowPlaying.Song.Title}"/>
+                    <Label HorizontalTextAlignment="Center" Text="{Binding NowPlaying.Song.Artist}"/>
+                    <Label HorizontalTextAlignment="Center" Text="{Binding NowPlaying.Song.Album}"/>
+                </VerticalStackLayout>
 
             </VerticalStackLayout>
 
