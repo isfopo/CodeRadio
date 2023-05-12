@@ -41,7 +41,7 @@
                     <Label HorizontalTextAlignment="Center" Text="{Binding NowPlaying.Song.Album}"/>
                 </VerticalStackLayout>
 
-                <ProgressBar x:Name="positionBar" />
+                <ProgressBar x:Name="positionBar" Progress="{Binding SongPositionNormalized}"/>
 
                 <Grid>
                     <Label HorizontalTextAlignment="Start"

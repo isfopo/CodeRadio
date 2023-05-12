@@ -44,6 +44,9 @@ public partial class MainViewModel : BaseViewModel
     [ObservableProperty]
     public double songPosition;
 
+    [ObservableProperty]
+    public double songPositionNormalized;
+
     IConnectivity connectivity;
 
     public MainViewModel(RadioService radioService, IConnectivity connectivity)
@@ -111,6 +114,7 @@ public partial class MainViewModel : BaseViewModel
         if (SongPosition <= NowPlaying.Duration)
         {
             SongPosition += 1;
+            SongPositionNormalized = SongPosition / NowPlaying.Duration;
         }
         else
         {
