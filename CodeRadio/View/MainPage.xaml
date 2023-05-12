@@ -21,10 +21,12 @@
                       WidthRequest="0"
                       />
 
-            <Label Text="{Binding NowPlaying.Song.Title}"
-                   TextColor="Black"/>
+            <VerticalStackLayout
+                VerticalOptions="Center">
+                <Image
+                    Source="{Binding NowPlaying.Song.Art}"/>
 
-
+            </VerticalStackLayout>
 
 
         </VerticalStackLayout>
