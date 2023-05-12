@@ -23,7 +23,6 @@
                       Source="{Binding SelectedListenUrl}"
                       HeightRequest="0"
                       WidthRequest="0"
-                      PositionChanged="OnPositionChanged"
                       />
 
             <VerticalStackLayout

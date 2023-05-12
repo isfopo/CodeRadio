@@ -19,11 +19,6 @@ public partial class MainPage : ContentPage
         base.OnAppearing();
 		viewModel.GetRadioCommand.Execute(null);
     }
-
-    void OnPositionChanged(object? sender, MediaPositionChangedEventArgs e)
-    {
-        var v = 1;
-    }
 }
 
 
