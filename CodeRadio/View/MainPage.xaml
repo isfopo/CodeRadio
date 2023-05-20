@@ -4,8 +4,12 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:model="clr-namespace:CodeRadio.Model"
              xmlns:viewmodel="clr-namespace:CodeRadio.ViewModel"
+             xmlns:converters="clr-namespace:CodeRadio.Converters"
              x:Class="CodeRadio.MainPage"
              x:DataType="viewmodel:MainViewModel">
+    <ContentPage.Resources>
+        <converters:SecondsToStringConverter x:Key="SecondsToStringConverter" />
+    </ContentPage.Resources>
 
     <ScrollView>
         <VerticalStackLayout
@@ -21,10 +25,32 @@
                       WidthRequest="0"
                       />
 
-            <Label Text="{Binding NowPlaying.Song.Title}"
-                   TextColor="Black"/>
+            <VerticalStackLayout
+                VerticalOptions="CenterAndExpand">
+                <Image
+                    Source="{Binding NowPlaying.Song.Art}"/>
 
+                <VerticalStackLayout
+                    VerticalOptions="CenterAndExpand"
+                    Padding="0, 30"
+                    Spacing="6">
+                    <Label HorizontalTextAlignment="Center"
+                           Style="{StaticResource BoldLabel}"
+                           Text="{Binding NowPlaying.Song.Title}"/>
+                    <Label HorizontalTextAlignment="Center" Text="{Binding NowPlaying.Song.Artist}"/>
+                    <Label HorizontalTextAlignment="Center" Text="{Binding NowPlaying.Song.Album}"/>
+                </VerticalStackLayout>
 
+                <ProgressBar x:Name="positionBar" Progress="{Binding SongPositionNormalized}"/>
+
+                <Grid>
+                    <Label HorizontalTextAlignment="Start"
+                       Text="{Binding SongPosition, Converter={StaticResource SecondsToStringConverter}}"/>
+                    <Label HorizontalTextAlignment="End"
+                       Text="{Binding NowPlaying.Duration, Converter={StaticResource SecondsToStringConverter}}"/>
+                </Grid>
+
+            </VerticalStackLayout>
 
 
         </VerticalStackLayout>

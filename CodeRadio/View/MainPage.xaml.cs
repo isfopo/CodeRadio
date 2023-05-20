@@ -1,4 +1,5 @@
 ﻿using CodeRadio.ViewModel;
+using CommunityToolkit.Maui.Core.Primitives;
 
 namespace CodeRadio;
 
@@ -11,7 +12,7 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 		BindingContext = viewModel;
 		this.viewModel = viewModel;
-	}
+    }
 
     protected override void OnAppearing()
     {
