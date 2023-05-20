@@ -63,6 +63,10 @@
 	  <None Remove="Model\" />
 	  <None Remove="Services\" />
 	  <None Remove="Converters\" />
+	  <None Remove="Resources\Images\" />
+	  <None Remove="Resources\Images\Icons\" />
+	  <None Remove="Resources\Images\Icons\pause.svg" />
+	  <None Remove="Resources\Images\Icons\play.svg" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="View\" />
@@ -70,5 +74,11 @@
 	  <Folder Include="Model\" />
 	  <Folder Include="Services\" />
 	  <Folder Include="Converters\" />
+	  <Folder Include="Resources\Images\" />
+	  <Folder Include="Resources\Images\Icons\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <BundleResource Include="Resources\Images\Icons\pause.svg" />
+	  <BundleResource Include="Resources\Images\Icons\play.svg" />
 	</ItemGroup>
 </Project>
