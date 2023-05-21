@@ -42,6 +42,7 @@
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Include="Resources\Images\Icons\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
 
 		<!-- Custom Fonts -->
@@ -64,9 +65,7 @@
 	  <None Remove="Services\" />
 	  <None Remove="Converters\" />
 	  <None Remove="Resources\Images\" />
-	  <None Remove="Resources\Images\Icons\" />
-	  <None Remove="Resources\Images\Icons\pause.svg" />
-	  <None Remove="Resources\Images\Icons\play.svg" />
+	  <None Remove="Resources\Fonts\FontAwesomeSolid-900.otf" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="View\" />
@@ -75,10 +74,8 @@
 	  <Folder Include="Services\" />
 	  <Folder Include="Converters\" />
 	  <Folder Include="Resources\Images\" />
-	  <Folder Include="Resources\Images\Icons\" />
 	</ItemGroup>
 	<ItemGroup>
-	  <BundleResource Include="Resources\Images\Icons\pause.svg" />
-	  <BundleResource Include="Resources\Images\Icons\play.svg" />
+	  <BundleResource Include="Resources\Fonts\FontAwesomeSolid-900.otf" />
 	</ItemGroup>
 </Project>

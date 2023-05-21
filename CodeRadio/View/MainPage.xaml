@@ -7,8 +7,10 @@
              xmlns:converters="clr-namespace:CodeRadio.Converters"
              x:Class="CodeRadio.MainPage"
              x:DataType="viewmodel:MainViewModel">
+
     <ContentPage.Resources>
         <converters:SecondsToStringConverter x:Key="SecondsToStringConverter" />
+        <x:String x:Key="play">&#xf04b;</x:String>
     </ContentPage.Resources>
 
     <ScrollView>
@@ -52,6 +54,14 @@
 
             </VerticalStackLayout>
 
+            <ImageButton>
+                <ImageButton.Source>
+                    <FontImageSource
+                        FontFamily="FontAwesomeSolid"
+                        Glyph="{StaticResource play}"
+                        Color="Blue" />
+                </ImageButton.Source>
+            </ImageButton>
 
         </VerticalStackLayout>
     </ScrollView>
