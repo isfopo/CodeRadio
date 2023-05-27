@@ -19,6 +19,14 @@ public partial class MainPage : ContentPage
         base.OnAppearing();
 		viewModel.GetRadioCommand.Execute(null);
     }
+
+	void Play(object? sender, EventArgs e)
+    {
+		mediaElement.Play();
+	}
+
+	void Pause(object? sender, EventArgs e)
+    {
+		mediaElement.Pause();
+	}
 }
-
-

@@ -125,17 +125,5 @@ public partial class MainViewModel : BaseViewModel
             await FetchRadioAsync();
         }
     }
-
-    [RelayCommand]
-    void TogglePlayPause()
-    {
-        if (Volume > 0)
-        {
-            Volume = 0;
-        } else
-        {
-            Volume = 1;
-        }
-    }
 }
 
