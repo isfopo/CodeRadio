@@ -49,11 +49,15 @@ public partial class MainViewModel : BaseViewModel
 
     IConnectivity connectivity;
 
+    [ObservableProperty]
+    long volume;
+
     public MainViewModel(RadioService radioService, IConnectivity connectivity)
     {
         Title = "CodeRadio";
         this.radioService = radioService;
         this.connectivity = connectivity;
+        this.volume = 1;
     }
 
     [RelayCommand]
@@ -119,6 +123,18 @@ public partial class MainViewModel : BaseViewModel
         else
         {
             await FetchRadioAsync();
+        }
+    }
+
+    [RelayCommand]
+    void TogglePlayPause()
+    {
+        if (Volume > 0)
+        {
+            Volume = 0;
+        } else
+        {
+            Volume = 1;
         }
     }
 }
