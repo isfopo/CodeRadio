@@ -23,10 +23,12 @@ public partial class MainPage : ContentPage
 	void Play(object? sender, EventArgs e)
     {
 		mediaElement.Play();
+		viewModel.ResumeIncrementCommand.Execute(null);
 	}
 
 	void Pause(object? sender, EventArgs e)
     {
 		mediaElement.Pause();
-	}
+        viewModel.PauseIncrementCommand.Execute(null);
+    }
 }

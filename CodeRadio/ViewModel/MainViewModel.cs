@@ -52,6 +52,8 @@ public partial class MainViewModel : BaseViewModel
     [ObservableProperty]
     long volume;
 
+    bool IncrementIsPaused { get; set; }
+
     public MainViewModel(RadioService radioService, IConnectivity connectivity)
     {
         Title = "CodeRadio";
@@ -115,6 +117,8 @@ public partial class MainViewModel : BaseViewModel
 
     async void IncrementPosition()
     {
+        if (IncrementIsPaused) return;
+
         if (SongPosition <= NowPlaying.Duration)
         {
             SongPosition += 1;
@@ -124,6 +128,18 @@ public partial class MainViewModel : BaseViewModel
         {
             await FetchRadioAsync();
         }
+    }
+
+    [RelayCommand]
+    void PauseIncrement()
+    {
+        IncrementIsPaused = true;
+    }
+
+    [RelayCommand]
+    void ResumeIncrement()
+    {
+        IncrementIsPaused = false;
     }
 }
 
